@@ -4,7 +4,21 @@ class UsersController < ApplicationController
   def show #追加
     @user = User.find(params[:id])
     @microposts = @user.microposts
+    
+    @follower_relationships = @user.follower_relationships
   end
+  
+  def following
+    @user = User.find(params[:id])
+    @following = @user.following_users
+    @following_relationships = @user.following_relationships
+  end
+  
+  def followers
+    @user = User.find(params[:id])
+    @followers = @user.follower_users
+    @follower_relationships = @user.follower_relationships
+   end
   
   def new
     @user = User.new
@@ -44,6 +58,5 @@ class UsersController < ApplicationController
   def set_user
     @user = User.find(params[:id])
   end
-  
   
 end
