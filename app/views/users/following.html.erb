@@ -1,5 +1,4 @@
 <% @following.each do |follow| %>
-    <%= follow.name %>
-    <%= link_to "a"  show_users_path(users) %>
-    <br>
+  <p><%= gravatar_for(@user, size: 20) %>
+  <span><%= link_to follow.name  , user_path(follow) %></span></p>
 <% end %>
