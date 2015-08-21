@@ -48,5 +48,7 @@ group :development, :test do
   
   gem 'kaminari'
   
+  gem 'carrierwave'
+  
 end
 
