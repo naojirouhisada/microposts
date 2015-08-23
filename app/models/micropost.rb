@@ -8,8 +8,5 @@ class Micropost < ActiveRecord::Base
                                  dependent: :destroy
     has_many :favorite_users, through: :favorite_favorites, source: :user
     
-     #他のユーザーの記事をお気に入りにする
-    def favorite(micropost)
-        favorite_favorites.created(micropost_id: micropost.id)
-    end
+     
 end

@@ -20,7 +20,6 @@ class User < ActiveRecord::Base
                                     dependent:   :destroy
     has_many :follower_users, through: :follower_relationships, source: :follower
     
-   
     
     has_many :favorited_favorites, class_name: "Favorite",
                                  foreign_key: "user_id",
@@ -48,7 +47,10 @@ class User < ActiveRecord::Base
         Micropost.where(user_id: following_user_ids + [self.id])
     end
     
-   
+   #他のユーザーの記事をお気に入りにする
+    def favorite(micropost)
+        favorited_favorites.create(micropost_id: micropost.id)
+    end
     
     #お気に入りの記事をお気に入りから外す
     def unfavorite(micropost)
