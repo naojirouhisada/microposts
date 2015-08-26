@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
     has_many :favorited_favorites, class_name: "Favorite",
                                  foreign_key: "user_id",
                                  dependent: :destroy
-    has_many :favorited_micropost, through: :favorited_favorites, source: :micropost
+    has_many :favorited_microposts, through: :favorited_favorites, source: :micropost
     
   
     
@@ -59,7 +59,7 @@ class User < ActiveRecord::Base
     
     #ある記事がお気に入りされているかどうか
     def favoriting?(micropost)
-        favorited_micropost.include?(micropost)
+        favorited_microposts.include?(micropost)
     end
         
 end

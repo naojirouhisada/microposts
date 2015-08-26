@@ -1,5 +1,5 @@
-<% @favorited.each do |favorited| %>
-   
-   <span><%= link_to micropost.id  , favorite_user_path(favorited) %></span>
-   <br>
+<%  @favorited_microposts.each do |micropost| %>
+    <%= image_tag(micropost.user.avatar) %>
+    <%= micropost.content %>
+    <hr>
 <% end %>
