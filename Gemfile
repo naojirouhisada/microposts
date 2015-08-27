@@ -52,6 +52,7 @@ group :development, :test do
   gem 'kaminari'
   
   gem 'carrierwave'
+  gem 'cloudinary'
   
 end
 
