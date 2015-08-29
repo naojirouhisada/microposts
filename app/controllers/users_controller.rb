@@ -32,6 +32,7 @@ class UsersController < ApplicationController
     else
       # 保存に失敗した場合は編集画面へ戻す
       render 'edit'
+      @user.save
     end
   end
   
@@ -45,7 +46,7 @@ class UsersController < ApplicationController
   private
     
   def user_params
-    params.require(:user).permit(:avatar,:name,:area, :email, :password,
+    params.require(:user).permit(:avatar,:avatar_cache,:name,:area, :email, :password,
                                    :password_confirmation)
   end
   
