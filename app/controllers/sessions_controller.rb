@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  before_action :check_logined, only: :show
   def new
   end
   
